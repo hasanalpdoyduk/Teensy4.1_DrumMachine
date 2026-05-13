@@ -2,7 +2,6 @@
 
 A hardware drum machine built on the **Teensy 4.1** (ARM Cortex-M7, 600 MHz) featuring a 16-step sequencer, 6 sampled instruments, real-time parameter control, USB MIDI I/O, and EEPROM pattern persistence.
 
----
 
 ## Features
 
@@ -17,7 +16,6 @@ A hardware drum machine built on the **Teensy 4.1** (ARM Cortex-M7, 600 MHz) fea
 | **Clock** | Hardware `IntervalTimer` (PIT) — microsecond precision, zero drift |
 | **Debug** | `DEBUG_ENABLED 0/1` macro in `Config.h` — zero overhead in production |
 
----
 
 ## Hardware
 
@@ -52,7 +50,13 @@ I²C bus: **Wire2** — SDA pin 25, SCL pin 24
 ### Audio Output
 - SGTL5000 codec over I2S (standard Teensy audio shield pinout)
 
----
+### Prototype on Breadboard
+
+<p align="center">
+  <img src="./Images/top.jpg" width="45%" />
+  <img src="./Images/bot.jpg" width="45%" />
+</p>
+
 
 ## Firmware Architecture
 
@@ -94,7 +98,6 @@ tom-mid ┘─► mixer3/4 ─────────────┘       │ 
                                       i2s_out L/R  →  SGTL5000
 ```
 
----
 
 ## Building
 
@@ -107,7 +110,6 @@ tom-mid ┘─► mixer3/4 ─────────────┘       │ 
 ### Debug output
 In `Config.h`, set `#define DEBUG_ENABLED 1` and open the Serial Monitor at 115200 baud. All `DEBUG_PRINT` / `DEBUG_PRINTF` calls are compiled out when `DEBUG_ENABLED 0`.
 
----
 
 ## Usage
 
@@ -132,8 +134,6 @@ Cutoff frequency is controlled by the filter pot (pin 26) with exponential mappi
 - **Auto-load**: on power-up the last saved pattern is restored from EEPROM automatically.
 - **Save**: hold **STOP** for 2 seconds while the sequencer is stopped. All step LEDs flash twice as confirmation.
 
----
-
 ## MIDI
 
 The device appears as a USB MIDI device named **Teensy MIDI** when connected to a host.
@@ -147,7 +147,6 @@ The device appears as a USB MIDI device named **Teensy MIDI** when connected to 
 
 GM drum note mapping: Kick 36 · Snare 38 · Hi-Hat Closed 42 · Hi-Hat Open 46 · Tom Low 45 · Tom Mid 47
 
----
 
 ## License
 
